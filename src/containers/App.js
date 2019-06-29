@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
-import { robots } from './robots';
-import CardList from './CardList';
-import SearchBox from './SearchBox';
+import { robots } from '../components/robots';
+import CardList from '../components/CardList';
+import SearchBox from '../components/SearchBox';
+import Scroll from '../components/Scroll';
 
 class App extends Component{
     constructor(){
         super()
         this.state = {
-            robots: robots,
+            robots: [],
             searchfield: ''
         }
+    }
+
+    componentDidMount(){
+        this.setState({robots: robots})
     }
 
     onSearchChange = (event) => {
@@ -24,7 +29,9 @@ class App extends Component{
         return (
             <div>
                 <SearchBox searchChange={this.onSearchChange}/>
-                <CardList robots={filteredRobots}/>
+                <Scroll>
+                    <CardList robots={filteredRobots}/>
+                </Scroll>
             </div>
         )
     }
