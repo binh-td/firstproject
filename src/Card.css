@@ -1,0 +1,22 @@
+.card{
+    background-color: lightgreen;
+    width: 250px;
+    text-align: center;
+    border: 1px solid lightgreen;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 5px;
+    transition: all 0.5s;
+    -webkit-box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.3);
+    box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.3);
+}
+.card:hover{
+    transform: scale(1.04);
+}
+h1{
+    color: #444;
+}
+p{
+    color: #888;
+}
