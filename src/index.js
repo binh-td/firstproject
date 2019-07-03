@@ -1,11 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import * as serviceWorker from './serviceWorker';
 import App from './containers/App';
+import { searchRobots, requestRobots } from './reducers';
+import thunkMiddleWare from 'redux-thunk';
 
+const rootReducer = combineReducers({ searchRobots, requestRobots })
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleWare));
 ReactDOM.render(
-    <App />, 
+    <Provider store={store}>
+        <App />
+    </Provider>, 
     document.getElementById('root')
 );
 
